@@ -11,10 +11,11 @@ module.exports = {
 	ignorePatterns: ["dist", ".eslintrc.cjs"],
 	parserOptions: { ecmaVersion: "latest", sourceType: "module" },
 	settings: { react: { version: "18.2" } },
-	plugins: ["react-refresh", "security", "import"],
+	plugins: ["react-refresh", "security"],
 	rules: {
 		"react-refresh/only-export-components": ["warn", { allowConstantExport: true }],
 		"security/detect-non-literal-regexp": "warn",
 		"security/detect-non-literal-require": "warn",
+		"react/prop-types": "off",
 	},
 };
