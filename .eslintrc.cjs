@@ -16,11 +16,5 @@ module.exports = {
 		"react-refresh/only-export-components": ["warn", { allowConstantExport: true }],
 		"security/detect-non-literal-regexp": "warn",
 		"security/detect-non-literal-require": "warn",
-		"import/no-unresolved": "error",
-		"import/named": "error",
-		"import/default": "error",
-		"import/namespace": "error",
-		"import/export": "error",
-		"import/no-named-as-default": "error",
 	},
 };
