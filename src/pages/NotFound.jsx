@@ -7,15 +7,16 @@ const NotFoundContainer = styled.div`
 	justify-content: center;
 	height: 100vh;
 	text-align: center;
+	overflow: hidden;
 `;
 
 const NotFoundHeading = styled.h1`
-	font-size: 2rem;
+	font-size: 1.6rem;
 	margin-bottom: 16px;
 `;
 
 const NotFoundMessage = styled.p`
-	font-size: 1.2rem;
+	font-size: 1rem;
 `;
 
 export default function NotFound() {
