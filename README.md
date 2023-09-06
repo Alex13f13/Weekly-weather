@@ -1,5 +1,5 @@
 # Weekly Weather
-Page providing information on the weather in your municipality based on data provided by the https://www.el-tiempo.net website.
+Page providing information on the weather in your city based on data provided by the https://www.el-tiempo.net website.
 
 ## How to start
 

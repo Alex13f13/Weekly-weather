@@ -4,12 +4,16 @@ import { BrowserRouter } from "react-router-dom";
 import GlobalStyle from "./components/GlobalStyle";
 import { store } from "./store/store";
 import { Provider } from "react-redux";
+import { PersistGate } from "redux-persist/integration/react";
+import { persistStore } from "redux-persist";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-	<Provider store={store}>
-		<GlobalStyle />
-		<BrowserRouter>
-			<Router />
-		</BrowserRouter>
-	</Provider>
+	<PersistGate persistor={persistStore(store)}>
+		<Provider store={store}>
+			<GlobalStyle />
+			<BrowserRouter>
+				<Router />
+			</BrowserRouter>
+		</Provider>
+	</PersistGate>
 );

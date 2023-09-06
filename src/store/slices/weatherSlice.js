@@ -2,8 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
 	provinces: [],
-	selectedProvince: "",
-	municipalities: [],
+	selectedProvince: 15, // A Coruña
+	cities: [],
 };
 
 export const weatherSlice = createSlice({
@@ -16,11 +16,11 @@ export const weatherSlice = createSlice({
 		setSelectedProvince: (state, action) => {
 			state.selectedProvince = action.payload;
 		},
-		setMunicipalities: (state, action) => {
-			state.municipalities = action.payload;
+		setCities: (state, action) => {
+			state.cities = action.payload;
 		},
 	},
 });
 
-export const { setProvinces, setSelectedProvince, setMunicipalities } = weatherSlice.actions;
+export const { setProvinces, setSelectedProvince, setCities } = weatherSlice.actions;
 export default weatherSlice.reducer;

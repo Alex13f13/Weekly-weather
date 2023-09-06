@@ -1,10 +1,11 @@
-import { useEffect } from "react";
 import styled from "styled-components";
 import Selector from "../components/Selector";
 import WeatherCard from "../components/WeatherCard";
 import { getWeatherIcon } from "../utils/getWeatherIcon";
 import { useDispatch, useSelector } from "react-redux";
-import { setMunicipalities, setProvinces, setSelectedProvince } from "../store/slices/weatherSlice";
+import { setSelectedProvince } from "../store/slices/weatherSlice";
+import Loading from "../components/Loading";
+import { useGetAllProvincesQuery, useGetCitiesByProvinceIDQuery } from "../services/weatherApi";
 
 const StyledWrapper = styled.div`
 	width: 88vw;
@@ -34,38 +35,11 @@ const StyledBody = styled.section`
 `;
 
 export default function Home() {
-	const { provinces, municipalities, selectedProvince } = useSelector((state) => state.weather);
+	const { selectedProvince } = useSelector((state) => state.weather);
+	const { data: provinces, isLoading: provLoading } = useGetAllProvincesQuery();
+	const { data: cities, isLoading: cityLoading } = useGetCitiesByProvinceIDQuery(selectedProvince);
 
 	const dispatch = useDispatch();
-
-	useEffect(() => {
-		fetch("https://www.el-tiempo.net/api/json/v2/provincias")
-			.then((response) => response.json())
-			.then((data) => {
-				dispatch(setSelectedProvince(data?.provincias[0]?.CODPROV));
-				const allProvinces = data?.provincias?.map((province) => ({
-					value: province?.CODPROV,
-					text: province?.NOMBRE_PROVINCIA,
-				}));
-				dispatch(setProvinces(allProvinces));
-			})
-			.catch((error) => {
-				console.error("Error al obtener datos:", error);
-			});
-	}, []);
-
-	useEffect(() => {
-		if (!selectedProvince) return;
-		fetch(`https://www.el-tiempo.net/api/json/v2/provincias/${selectedProvince}`)
-			.then((response) => response.json())
-			.then((data) => {
-				console.log(data.ciudades);
-				dispatch(setMunicipalities(data.ciudades));
-			})
-			.catch((error) => {
-				console.error("Error al obtener datos:", error);
-			});
-	}, [selectedProvince]);
 
 	const onSelectedProvince = (value) => {
 		dispatch(setSelectedProvince(value));
@@ -73,22 +47,31 @@ export default function Home() {
 
 	return (
 		<StyledWrapper>
-			{provinces.length ? (
+			{provLoading ? (
+				<Loading />
+			) : (
 				<>
 					<StyledHeader>
 						<h1>El tiempo en España</h1>
-						<Selector label="Provincia" options={provinces} onSelect={onSelectedProvince} />
+						<Selector
+							label="Provincia"
+							options={provinces}
+							onSelect={onSelectedProvince}
+							defaultValue={selectedProvince}
+						/>
 					</StyledHeader>
-					{municipalities.length ? (
+					{cityLoading ? (
+						<Loading />
+					) : cities.length ? (
 						<StyledBody>
-							{municipalities.map((municipality) => (
+							{cities?.map((city) => (
 								<WeatherCard
-									key={municipality?.id}
-									name={municipality?.name}
-									weather={municipality?.stateSky?.description}
-									icon={getWeatherIcon(municipality?.stateSky?.description, "large")}
-									max={`${municipality?.temperatures?.max}°C`}
-									min={`${municipality?.temperatures?.min}°C`}
+									key={city?.id}
+									name={city?.name}
+									weather={city?.stateSky?.description}
+									icon={getWeatherIcon(city?.stateSky?.description, "large")}
+									max={`${city?.temperatures?.max}°C`}
+									min={`${city?.temperatures?.min}°C`}
 								/>
 							))}
 						</StyledBody>
@@ -96,8 +79,6 @@ export default function Home() {
 						<h1>No hay resultados</h1>
 					)}
 				</>
-			) : (
-				<h1>Cargando...</h1>
 			)}
 		</StyledWrapper>
 	);
