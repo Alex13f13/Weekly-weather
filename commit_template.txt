@@ -1,0 +1,5 @@
+Commit Type (feature/bugfix/release/hotfix/support): Brief description of the change
+
+More detailed description of the change:
+- Additional details about what has been done -> ...
+- Related issue or task (No tasks).
