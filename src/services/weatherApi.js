@@ -1,4 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { getFirstString } from "../utils/getFirstString";
 
 export const weatherApi = createApi({
 	reducerPath: "weatherApi",
@@ -8,8 +9,8 @@ export const weatherApi = createApi({
 			query: () => `provincias`,
 			transformResponse: (response) => {
 				return response?.provincias?.map((province) => ({
-					id: province.CODPROV,
-					name: province.NOMBRE_PROVINCIA,
+					id: province?.CODPROV,
+					name: province?.NOMBRE_PROVINCIA,
 				}));
 			},
 		}),
@@ -21,22 +22,27 @@ export const weatherApi = createApi({
 			query: (cityID) => `municipios/${cityID}`,
 			transformResponse: (response) => {
 				return {
-					originURL: response.origin.web,
-					name: response.municipio.NOMBRE,
+					originURL: response?.origin?.web,
+					name: response?.municipio?.NOMBRE,
 					today: {
-						temperature: { max: response.temperaturas.max, min: response.temperaturas.min },
-						uv: response.uv_max,
-						humidity: response.humedad,
-						day: response.fecha,
-						weather: response.stateSky.description,
-					},
-					weekly: response.proximos_dias?.map((day) => ({
-						day: day["@attributes"].fecha,
 						temperature: {
-							max: day.temperatura.maxima,
-							min: day.temperatura.minima,
+							now: response?.temperatura_actual,
+							max: response?.temperaturas?.max,
+							min: response?.temperaturas?.min,
 						},
-						weather: day.estado_cielo_descripcion,
+						wind: response?.viento,
+						uv: response?.uv_max,
+						humidity: response?.humedad,
+						day: response?.fecha,
+						weather: response?.stateSky?.description,
+					},
+					nextDays: response?.proximos_dias?.map((day) => ({
+						day: day["@attributes"]?.fecha,
+						temperature: {
+							max: day?.temperatura.maxima,
+							min: day?.temperatura.minima,
+						},
+						weather: getFirstString(day?.estado_cielo_descripcion),
 					})),
 				};
 			},

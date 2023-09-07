@@ -3,8 +3,10 @@ import { createGlobalStyle } from "styled-components";
 const GlobalStyle = createGlobalStyle`
   
   body {
-    margin: 0;
+    margin: 2vh 6vw;
     padding: 0;
+    width: 88vw;
+    height: auto;
     font-family: Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
     background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
     background-repeat: no-repeat;

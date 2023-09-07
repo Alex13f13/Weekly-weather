@@ -1,11 +1,8 @@
 import styled from "styled-components";
-import WeatherList from "../components/WeatherList";
-import ProvinceSelector from "../components/ProvinceSelector";
+import CityWeatherList from "../components/pageSections/CityWeatherList";
+import ProvinceSelector from "../components/pageSections/ProvinceSelector";
 
 const StyledWrapper = styled.div`
-	width: 88vw;
-	height: auto;
-	margin: 0 6vw;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -17,7 +14,7 @@ const StyledTitle = styled.h1`
 	width: auto;
 	display: flex;
 	justify-content: center;
-	align-items: flex-end;
+	align-items: center;
 `;
 
 export default function Home() {
@@ -25,7 +22,7 @@ export default function Home() {
 		<StyledWrapper>
 			<StyledTitle>El tiempo en España</StyledTitle>
 			<ProvinceSelector />
-			<WeatherList />
+			<CityWeatherList />
 		</StyledWrapper>
 	);
 }

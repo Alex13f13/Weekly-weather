@@ -19,10 +19,10 @@ const StyledFooter = styled.div`
 	justify-content: space-between;
 `;
 
-export default function WeatherCard({ icon, weather, max, min, name }) {
+export default function WeatherCard({ icon, weather, max, min, name, onClick = () => {} }) {
 	return (
 		<Card>
-			<CardActionArea>
+			<CardActionArea onClick={() => onClick()}>
 				<CardContent>
 					<Typography gutterBottom variant="h5" component="div">
 						{name}
