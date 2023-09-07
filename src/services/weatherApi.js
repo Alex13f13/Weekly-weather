@@ -13,11 +13,39 @@ export const weatherApi = createApi({
 				}));
 			},
 		}),
-		getCitiesByProvinceID: builder.query({
+		getCitiesByProvinceId: builder.query({
 			query: (provinceID) => `provincias/${provinceID}`,
 			transformResponse: (response) => response?.ciudades,
+		}),
+		getCityWheatherById: builder.query({
+			query: (cityID) => `municipios/${cityID}`,
+			transformResponse: (response) => {
+				return {
+					originURL: response.origin.web,
+					name: response.municipio.NOMBRE,
+					today: {
+						temperature: { max: response.temperaturas.max, min: response.temperaturas.min },
+						uv: response.uv_max,
+						humidity: response.humedad,
+						day: response.fecha,
+						weather: response.stateSky.description,
+					},
+					weekly: response.proximos_dias?.map((day) => ({
+						day: day["@attributes"].fecha,
+						temperature: {
+							max: day.temperatura.maxima,
+							min: day.temperatura.minima,
+						},
+						weather: day.estado_cielo_descripcion,
+					})),
+				};
+			},
 		}),
 	}),
 });
 
-export const { useGetAllProvincesQuery, useGetCitiesByProvinceIDQuery } = weatherApi;
+export const {
+	useGetAllProvincesQuery,
+	useGetCitiesByProvinceIdQuery,
+	useGetCityWheatherByIdQuery,
+} = weatherApi;
