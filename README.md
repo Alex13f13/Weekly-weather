@@ -7,7 +7,7 @@ Page providing information on the weather in your city based on data provided by
 ## Flow Diagram
 
 
-## Clean Architecture structure
+## Folder structure
 - node_modules/
 - public/
 - src/
