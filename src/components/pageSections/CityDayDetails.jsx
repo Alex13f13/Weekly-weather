@@ -21,6 +21,7 @@ const StyledHead = styled.div`
 	justify-content: space-between;
 	align-items: center;
 	flex-direction: column;
+	white-space: nowrap;
 `;
 
 const StyledBody = styled.div`

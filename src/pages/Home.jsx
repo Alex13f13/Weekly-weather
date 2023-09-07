@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import CityWeatherList from "../components/pageSections/CityWeatherList";
 import ProvinceSelector from "../components/pageSections/ProvinceSelector";
+import FavoriteListButton from "../components/pageSections/FavoriteListButton";
 
 const StyledWrapper = styled.div`
 	display: flex;
@@ -22,6 +23,7 @@ export default function Home() {
 		<StyledWrapper>
 			<StyledTitle>El tiempo en España</StyledTitle>
 			<ProvinceSelector />
+			<FavoriteListButton />
 			<CityWeatherList />
 		</StyledWrapper>
 	);

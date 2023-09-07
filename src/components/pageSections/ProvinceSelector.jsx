@@ -6,7 +6,7 @@ import { setSelectedProvince } from "../../store/slices/weatherSlice";
 import StatusManager from "../common/StatusManager";
 
 const StyledWrapper = styled.section`
-	height: 25vh;
+	height: 18vh;
 	width: 100%;
 	display: flex;
 	justify-content: center;
@@ -16,7 +16,7 @@ const StyledWrapper = styled.section`
 `;
 
 export default function ProvinceSelector() {
-	const { selectedProvince } = useSelector((state) => state.weather);
+	const { selectedProvince } = useSelector((state) => state?.weather);
 	const { data: provinces, isLoading, error } = useGetAllProvincesQuery();
 
 	const dispatch = useDispatch();
