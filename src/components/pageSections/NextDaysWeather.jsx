@@ -2,7 +2,7 @@ import styled from "styled-components";
 import WeatherCard from "../common/WeatherCard";
 import StatusManager from "../common/StatusManager";
 import { getWeatherIcon } from "../../utils/getWeatherIcon";
-import { useGetCityWheatherByIdQuery } from "../../services/weatherApi";
+import { useGetCityDetailWeatherByIdQuery } from "../../services/weatherApi";
 
 const StyledWrapper = styled.section`
 	height: auto;
@@ -21,8 +21,8 @@ const StyledList = styled.section`
 	gap: 2vh;
 `;
 
-export default function WeeklyWeather({ id }) {
-	const { data, isLoading, error } = useGetCityWheatherByIdQuery(id);
+export default function NextDaysWeather({ id }) {
+	const { data, isLoading, error } = useGetCityDetailWeatherByIdQuery(id);
 
 	if (!data) return StatusManager({ error });
 

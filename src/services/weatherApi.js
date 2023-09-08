@@ -16,10 +16,36 @@ export const weatherApi = createApi({
 		}),
 		getCitiesByProvinceId: builder.query({
 			query: (provinceID) => `provincias/${provinceID}`,
-			transformResponse: (response) => response?.ciudades,
+			transformResponse: (response) => {
+				return response?.ciudades?.map((city) => ({
+					id: city?.id,
+					name: city?.name,
+					description: city?.stateSky?.description,
+					icon: city?.stateSky?.description,
+					temperatures: {
+						max: city?.temperatures?.max,
+						min: city?.temperatures?.min,
+					},
+				}));
+			},
 		}),
-		getCityWheatherById: builder.query({
-			query: (cityID) => `municipios/${cityID}`,
+		getCityWeatherById: builder.query({
+			query: (cityId) => `municipios/${cityId}`,
+			transformResponse: (response) => {
+				return {
+					id: response?.municipio?.CODIGOINE?.substring(0, 5),
+					name: response?.municipio?.NOMBRE,
+					description: response?.stateSky?.description,
+					icon: response?.stateSky?.description,
+					temperatures: {
+						max: response?.temperaturas?.max,
+						min: response?.temperaturas?.min,
+					},
+				};
+			},
+		}),
+		getCityDetailWeatherById: builder.query({
+			query: (cityId) => `municipios/${cityId}`,
 			transformResponse: (response) => {
 				return {
 					originURL: response?.origin?.web,
@@ -53,5 +79,6 @@ export const weatherApi = createApi({
 export const {
 	useGetAllProvincesQuery,
 	useGetCitiesByProvinceIdQuery,
-	useGetCityWheatherByIdQuery,
+	useGetCityWeatherByIdQuery,
+	useGetCityDetailWeatherByIdQuery,
 } = weatherApi;

@@ -3,7 +3,7 @@ import Button from "@mui/material/Button";
 import StatusManager from "../common/StatusManager";
 import { openLink } from "../../utils/openLink";
 import { getWeatherIcon } from "../../utils/getWeatherIcon";
-import { useGetCityWheatherByIdQuery } from "../../services/weatherApi";
+import { useGetCityDetailWeatherByIdQuery } from "../../services/weatherApi";
 
 const StyledWrapper = styled.section`
 	height: 50vh;
@@ -46,7 +46,7 @@ const StyledEnviroment = styled.div`
 `;
 
 export default function CityDayDetails({ id }) {
-	const { data, isLoading, error } = useGetCityWheatherByIdQuery(id);
+	const { data, isLoading, error } = useGetCityDetailWeatherByIdQuery(id);
 
 	if (!data) return StatusManager({ isLoading, error });
 

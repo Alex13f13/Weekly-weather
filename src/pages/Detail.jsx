@@ -2,7 +2,7 @@ import styled from "styled-components";
 import BackButton from "../components/common/BackButton";
 import CityDayDetails from "../components/pageSections/CityDayDetails";
 import { useParams } from "react-router-dom";
-import WeeklyWeather from "../components/pageSections/WeeklyWeather";
+import NextDaysWeather from "../components/pageSections/NextDaysWeather";
 import FavButton from "../components/common/FavButton";
 import useFavourites from "../utils/hooks/useFavourites";
 
@@ -30,7 +30,7 @@ export default function Detail() {
 				<FavButton isFavorite={isFavourite(id)} onClick={() => toggleFavourite(id)} />
 			</StyledHeader>
 			<CityDayDetails id={id} />
-			<WeeklyWeather id={id} />
+			<NextDaysWeather id={id} />
 		</StyledWrapper>
 	);
 }
