@@ -1,11 +1,11 @@
 import styled from "styled-components";
-import Selector from "../common/Selector";
 import { useSelector, useDispatch } from "react-redux";
 import { useGetAllProvincesQuery } from "../../services/weatherApi";
 import { setSelectedProvince } from "../../store/slices/weatherSlice";
-import StatusManager from "../common/StatusManager";
+import { StatusManager, Selector } from "../common";
+import { LABEL } from "../../utils/constants";
 
-const StyledWrapper = styled.section`
+const StyledSection = styled.section`
 	height: 18vh;
 	width: 100%;
 	display: flex;
@@ -26,16 +26,16 @@ export default function ProvinceSelector() {
 	};
 
 	return (
-		<StyledWrapper>
+		<StyledSection>
 			<StatusManager isLoading={isLoading} error={error}>
-				<p>Selecciona tu provincia 🗺️</p>
+				<p>Selecciona tu provincia 🌍</p>
 				<Selector
-					label="Provincia"
+					label={LABEL.province}
 					options={provinces}
 					onSelect={onSelectedProvince}
 					defaultValue={selectedProvince}
 				/>
 			</StatusManager>
-		</StyledWrapper>
+		</StyledSection>
 	);
 }

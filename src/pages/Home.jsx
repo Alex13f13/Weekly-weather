@@ -1,22 +1,5 @@
-import styled from "styled-components";
-import CityWeatherList from "../components/pageSections/CityWeatherList";
-import ProvinceSelector from "../components/pageSections/ProvinceSelector";
-import FavoriteListButton from "../components/pageSections/FavoriteListButton";
-
-const StyledWrapper = styled.div`
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	gap: 2vh;
-`;
-
-const StyledTitle = styled.h1`
-	height: 15vh;
-	width: auto;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-`;
+import { StyledTitle, StyledWrapper } from "../styles";
+import { CityWeatherList, ProvinceSelector, FavoriteListButton } from "../components/pageSections";
 
 export default function Home() {
 	return (

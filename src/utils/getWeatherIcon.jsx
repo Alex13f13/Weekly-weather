@@ -2,15 +2,15 @@ import WbSunnyIcon from "@mui/icons-material/WbSunnyOutlined";
 import WaterDropIcon from "@mui/icons-material/WaterDropOutlined";
 import CloudIcon from "@mui/icons-material/CloudOutlined";
 import ThunderstormIcon from "@mui/icons-material/ThunderstormOutlined";
+import { SIZE } from "./constants";
 
-export const getWeatherIcon = (weatherDescription, fontSize = "large") => {
+export const getWeatherIcon = (weatherDescription, fontSize = SIZE.small) => {
 	const iconMappings = {
 		despejado: <WbSunnyIcon fontSize={fontSize} />,
-		soleado: <WbSunnyIcon fontSize={fontSize} />,
-		lluvioso: <WaterDropIcon fontSize={fontSize} />,
-		lluvia: <WaterDropIcon fontSize={fontSize} />,
-		tormenta: <ThunderstormIcon fontSize={fontSize} />,
-		nuboso: <CloudIcon fontSize={fontSize} />,
+		sol: <WbSunnyIcon fontSize={fontSize} />,
+		lluv: <WaterDropIcon fontSize={fontSize} />,
+		torment: <ThunderstormIcon fontSize={fontSize} />,
+		nub: <CloudIcon fontSize={fontSize} />,
 		cubierto: <CloudIcon fontSize={fontSize} />,
 	};
 
@@ -22,3 +22,7 @@ export const getWeatherIcon = (weatherDescription, fontSize = "large") => {
 
 	return matchingIcon ? iconMappings[matchingIcon] : <WbSunnyIcon fontSize={fontSize} />;
 };
+
+// Esta función asigna iconos basados en palabras clave en la descripción del tiempo
+// debido a la falta de documentación de equivalencia de la API con códigos específicos.
+// Para una solución más robusta, se debería considerar usar el código proporcionado por la API en lugar de texto.

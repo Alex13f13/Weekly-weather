@@ -1,11 +1,11 @@
-import { configureStore } from "@reduxjs/toolkit";
+import thunk from "redux-thunk";
 import weatherSlice from "./slices/weatherSlice";
+import storage from "redux-persist/lib/storage";
+import { configureStore } from "@reduxjs/toolkit";
+import { persistReducer } from "redux-persist";
 import { weatherApi } from "../services/weatherApi";
 import { setupListeners } from "@reduxjs/toolkit/query";
 import { combineReducers } from "redux";
-import storage from "redux-persist/lib/storage";
-import { persistReducer } from "redux-persist";
-import thunk from "redux-thunk";
 
 const persistConfig = {
 	key: "root",
