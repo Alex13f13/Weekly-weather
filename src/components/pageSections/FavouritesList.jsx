@@ -1,10 +1,9 @@
 import styled from "styled-components";
 import { useEffect, useState } from "react";
-import StatusManager from "../common/StatusManager";
-import WeatherCardList from "../common/WeatherCardList";
+import { StatusManager, WeatherCardList } from "../common";
 import useFavourites from "../../utils/hooks/useFavourites";
 
-const StyledWrapper = styled.section`
+const StyledSection = styled.section`
 	height: auto;
 	width: 100%;
 `;
@@ -18,10 +17,10 @@ export default function FavouritesList() {
 	}, [favourites]);
 
 	return (
-		<StyledWrapper>
+		<StyledSection>
 			<StatusManager isLoading={!cities?.length}>
 				<WeatherCardList cards={cities} />
 			</StatusManager>
-		</StyledWrapper>
+		</StyledSection>
 	);
 }

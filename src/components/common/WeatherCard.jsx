@@ -1,8 +1,14 @@
 import styled from "styled-components";
 import CardContent from "@mui/material/CardContent";
-import Typography from "@mui/material/Typography";
 import Card from "@mui/material/Card";
-import CardActionArea from "@mui/material/CardActionArea";
+import DataDisplay from "./DataDisplay";
+import { HTML_TAGS, LABEL, UNITS } from "../../utils/constants";
+
+const StyledHead = styled.div`
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+`;
 
 const StyledBody = styled.div`
 	display: flex;
@@ -21,25 +27,21 @@ const StyledFooter = styled.div`
 
 export default function WeatherCard({ icon, weather, max, min, name, onClick = () => {} }) {
 	return (
-		<Card>
-			<CardActionArea onClick={() => onClick()}>
-				<CardContent>
-					<Typography gutterBottom variant="h5" component="div">
-						{name}
-					</Typography>
-					<StyledBody>
-						{icon}
-						<Typography variant="body2" color="text.secondary">
-							{weather}
-						</Typography>
-					</StyledBody>
-					<hr />
-					<StyledFooter>
-						<Typography variant="body3">MAX: {max}</Typography>
-						<Typography variant="body3">MIN: {min}</Typography>
-					</StyledFooter>
-				</CardContent>
-			</CardActionArea>
+		<Card onClick={() => onClick()}>
+			<CardContent>
+				<StyledHead>
+					<DataDisplay data={name} tag={HTML_TAGS.h4} />
+				</StyledHead>
+				<StyledBody>
+					{icon}
+					<DataDisplay data={weather} tag={HTML_TAGS.h5} />
+				</StyledBody>
+				<hr />
+				<StyledFooter>
+					<DataDisplay data={max} label={LABEL.max} units={UNITS.celsius} />
+					<DataDisplay data={min} label={LABEL.min} units={UNITS.celsius} />
+				</StyledFooter>
+			</CardContent>
 		</Card>
 	);
 }

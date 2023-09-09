@@ -14,7 +14,7 @@ const GlobalStyle = createGlobalStyle`
     font-size: 1rem;
     line-height: 1.55;
     text-rendering: optimizeSpeed;
-    min-height: 100vh;
+    min-height: 96vh;
   }
 
   h1 {
@@ -43,7 +43,7 @@ const GlobalStyle = createGlobalStyle`
 
   h4 {
     font-size: 1.25rem;
-    font-weight: 700;
+    font-weight: 500;
     line-height: 1.2;
     margin: 0;
     padding: 0;
@@ -51,7 +51,7 @@ const GlobalStyle = createGlobalStyle`
 
   h5 {
     font-size: 1rem;
-    font-weight: 700;
+    font-weight: 500;
     line-height: 1.2;
     margin: 0;
     padding: 0;

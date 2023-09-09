@@ -1,23 +1,13 @@
 import styled from "styled-components";
-import WeatherCard from "../common/WeatherCard";
-import StatusManager from "../common/StatusManager";
-import { getWeatherIcon } from "../../utils/getWeatherIcon";
 import { useGetCityDetailWeatherByIdQuery } from "../../services/weatherApi";
+import { StatusManager, WeatherCardList } from "../common";
 
-const StyledWrapper = styled.section`
+const StyledSection = styled.section`
 	height: auto;
 	width: 100%;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	gap: 2vh;
-`;
-
-const StyledList = styled.section`
-	height: auto;
-	width: 100%;
-	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
 	gap: 2vh;
 `;
 
@@ -29,22 +19,11 @@ export default function NextDaysWeather({ id }) {
 	const { nextDays } = data;
 
 	return (
-		<StyledWrapper>
+		<StyledSection>
 			<h3>Próximos días</h3>
-			<StyledList>
-				<StatusManager isLoading={isLoading} noResults={!nextDays?.length} error={error}>
-					{nextDays?.map((day, index) => (
-						<WeatherCard
-							key={index}
-							name={day?.day}
-							weather={day?.weather}
-							icon={getWeatherIcon(day?.weather, "large")}
-							max={`${day?.temperature?.max}°C`}
-							min={`${day?.temperature?.min}°C`}
-						/>
-					))}
-				</StatusManager>
-			</StyledList>
-		</StyledWrapper>
+			<StatusManager isLoading={isLoading} noResults={!nextDays?.length} error={error}>
+				<WeatherCardList cards={nextDays} />
+			</StatusManager>
+		</StyledSection>
 	);
 }

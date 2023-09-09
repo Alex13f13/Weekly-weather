@@ -1,11 +1,12 @@
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 import Button from "@mui/material/Button";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
-import { useNavigate } from "react-router-dom";
 import { paths } from "../../router/paths";
 import useFavourites from "../../utils/hooks/useFavourites";
+import { VARIANT } from "../../utils/constants";
 
-const StyledWrapper = styled.section`
+const StyledSection = styled.section`
 	display: flex;
 	flex-direction: column;
 	width: 100%;
@@ -16,9 +17,9 @@ export default function FavoriteListButton() {
 	const { favourites } = useFavourites();
 
 	return (
-		<StyledWrapper>
+		<StyledSection>
 			<Button
-				variant="outlined"
+				variant={VARIANT.outlined}
 				endIcon={<FavoriteBorderOutlinedIcon />}
 				disabled={!favourites?.length}
 				onClick={() => {
@@ -27,6 +28,6 @@ export default function FavoriteListButton() {
 			>
 				Lista de favoritos
 			</Button>
-		</StyledWrapper>
+		</StyledSection>
 	);
 }

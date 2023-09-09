@@ -1,6 +1,7 @@
 import InputLabel from "@mui/material/InputLabel";
 import FormControl from "@mui/material/FormControl";
 import NativeSelect from "@mui/material/NativeSelect";
+import { VARIANT } from "../../utils/constants";
 
 export default function Selector({
 	label = "",
@@ -10,7 +11,7 @@ export default function Selector({
 }) {
 	return (
 		<FormControl fullWidth>
-			<InputLabel variant="standard">{label}</InputLabel>
+			<InputLabel variant={VARIANT.standard}>{label}</InputLabel>
 			<NativeSelect
 				defaultValue={defaultValue}
 				onChange={(event) => onSelect(event?.target?.value)}

@@ -63,12 +63,13 @@ export const weatherApi = createApi({
 						weather: response?.stateSky?.description,
 					},
 					nextDays: response?.proximos_dias?.map((day) => ({
-						day: day["@attributes"]?.fecha,
-						temperature: {
+						name: day["@attributes"]?.fecha,
+						temperatures: {
 							max: day?.temperatura.maxima,
 							min: day?.temperatura.minima,
 						},
-						weather: getFirstString(day?.estado_cielo_descripcion),
+						description: getFirstString(day?.estado_cielo_descripcion),
+						icon: getFirstString(day?.estado_cielo_descripcion),
 					})),
 				};
 			},
