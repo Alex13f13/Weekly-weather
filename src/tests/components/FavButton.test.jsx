@@ -1,6 +1,7 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import { FavButton } from "../../components/common";
 import { LABEL } from "../../utils/constants";
+import { vi } from "vitest";
 
 describe("FavButton Component", () => {
 	it("renders the favorite button initially", () => {
@@ -18,17 +19,14 @@ describe("FavButton Component", () => {
 	});
 
 	it("calls the provided onClick function when clicked", () => {
-		let onClickCalled = false;
-		const onClickMock = () => {
-			onClickCalled = true;
-		};
+		const onClickMock = vi.fn();
 
 		render(<FavButton isFavorite={false} onClick={onClickMock} />);
 
 		const favoriteButton = screen.getByLabelText(LABEL.favourite);
 		fireEvent.click(favoriteButton);
 
-		expect(onClickCalled).toBe(true);
+		expect(onClickMock).toHaveBeenCalled();
 	});
 
 	it("matches snapshot", () => {

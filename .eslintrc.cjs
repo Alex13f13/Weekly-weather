@@ -18,16 +18,16 @@ module.exports = {
 		"security/detect-non-literal-require": "warn",
 		"react/prop-types": "off",
 	},
-  globals: {
-    expect: "writable",
-    describe: "writable",
-    it: "writable",
-    beforeEach: "writable",
-    afterEach: "writable",
-    beforeAll: "writable",
-    afterAll: "writable",
-    test: "writable",
-    expect: "writable",
-  }
-
+	globals: {
+		expect: "writable",
+		describe: "writable",
+		it: "writable",
+		beforeEach: "writable",
+		afterEach: "writable",
+		beforeAll: "writable",
+		afterAll: "writable",
+		test: "writable",
+		expect: "writable",
+		require: "writable",
+	},
 };

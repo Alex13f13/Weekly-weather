@@ -13,7 +13,7 @@ export default function CityWeatherList() {
 	const { data: cities, isLoading, error } = useGetCitiesByProvinceIdQuery(selectedProvince);
 
 	return (
-		<StyledSection>
+		<StyledSection data-testid="city-weather-list">
 			<StatusManager isLoading={isLoading} noResults={!cities?.length} error={error}>
 				<WeatherCardList cards={cities} />
 			</StatusManager>

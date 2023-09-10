@@ -1,6 +1,7 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import { WeatherCard } from "../../components/common";
 import { LABEL, UNITS } from "../../utils/constants";
+import { vi } from "vitest";
 
 describe("WeatherCard Component", () => {
 	const defaultProps = {
@@ -33,10 +34,7 @@ describe("WeatherCard Component", () => {
 	});
 
 	it("calls the onClick function when the card is clicked", () => {
-		let onClickCalled = false;
-		const onClickMock = () => {
-			onClickCalled = true;
-		};
+		const onClickMock = vi.fn();
 
 		renderWeatherCard({ onClick: onClickMock });
 
@@ -44,7 +42,7 @@ describe("WeatherCard Component", () => {
 
 		fireEvent.click(card);
 
-		expect(onClickCalled).toBe(true);
+		expect(onClickMock).toHaveBeenCalled();
 	});
 
 	it("renders WeatherCard component if props are missing", () => {

@@ -30,7 +30,7 @@ const StyledBody = styled.div`
 export default function CityDayDetails({ id }) {
 	const { data, isLoading, error } = useGetCityDetailWeatherByIdQuery(id);
 
-	if (!data) return StatusManager({ isLoading, error });
+	if (!data) return StatusManager({ isLoading, error, noResults: data });
 
 	const {
 		name,

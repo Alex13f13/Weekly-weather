@@ -54,7 +54,7 @@ export const VARIANT = {
   outlined: "outlined",
 };
 
-export const PRIVINCE = {
+export const PROVINCE = {
   15: "A Coruña",
   3: "Albacete",
   4: "Alicante",
