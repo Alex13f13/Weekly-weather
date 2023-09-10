@@ -28,6 +28,13 @@ export const LABEL = {
 	humidity: "Humedad:",
 	uv: "Índice max. uv:",
 	wind: "Viento:",
+	loading: "Cargando...",
+	error: "Hubo un error al cargar los datos",
+	noResults: "No hay resultados",
+	seletProvince: "Selecciona una provincia 🌍",
+	favListButton: "Lista de favoritos",
+	nextDays: "Próximos días",
+  seeMore: "Ver más",
 };
 
 export const UNITS = {

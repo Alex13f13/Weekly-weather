@@ -27,7 +27,7 @@ const StyledFooter = styled.div`
 
 export default function WeatherCard({ icon, weather, max, min, name, onClick = () => {} }) {
 	return (
-		<Card onClick={() => onClick()}>
+		<Card data-testid="weather-card" onClick={() => onClick()}>
 			<CardContent>
 				<StyledHead>
 					<DataDisplay data={name} tag={HTML_TAGS.h4} />

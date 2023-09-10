@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { useGetCityDetailWeatherByIdQuery } from "../../services/weatherApi";
 import { StatusManager, WeatherCardList } from "../common";
+import { LABEL } from "../../utils/constants";
 
 const StyledSection = styled.section`
 	height: auto;
@@ -20,7 +21,7 @@ export default function NextDaysWeather({ id }) {
 
 	return (
 		<StyledSection>
-			<h3>Próximos días</h3>
+			<h3>{LABEL.nextDays}</h3>
 			<StatusManager isLoading={isLoading} noResults={!nextDays?.length} error={error}>
 				<WeatherCardList cards={nextDays} />
 			</StatusManager>

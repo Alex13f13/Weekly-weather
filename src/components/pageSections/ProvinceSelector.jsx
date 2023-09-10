@@ -28,7 +28,7 @@ export default function ProvinceSelector() {
 	return (
 		<StyledSection>
 			<StatusManager isLoading={isLoading} error={error}>
-				<p>Selecciona tu provincia 🌍</p>
+				<p>{LABEL.seletProvince}</p>
 				<Selector
 					label={LABEL.province}
 					options={provinces}

@@ -6,7 +6,7 @@ import EnvironmentInfo from "./EnvironmentInfo";
 import { StatusManager } from "../../common";
 import { openLink } from "../../../utils/openLink";
 import { useGetCityDetailWeatherByIdQuery } from "../../../services/weatherApi";
-import { SIZE } from "../../../utils/constants";
+import { LABEL, SIZE } from "../../../utils/constants";
 
 const StyledSection = styled.section`
 	height: 50vh;
@@ -47,7 +47,7 @@ export default function CityDayDetails({ id }) {
 					<EnvironmentInfo temperature={temperature} humidity={humidity} uv={uv} wind={wind} />
 				</StyledBody>
 				<Button onClick={() => openLink(originURL)} size={SIZE.small}>
-					Ver más
+					{LABEL.seeMore}
 				</Button>
 			</StatusManager>
 		</StyledSection>
