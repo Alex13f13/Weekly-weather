@@ -11,14 +11,21 @@ const StyledSection = styled.section`
 export default function FavouritesList() {
 	const { getAllCitiesData, favourites } = useFavourites();
 	const [cities, setCities] = useState([]);
+	const [error, setError] = useState(false);
+	const [isLoading, setIsloading] = useState(true);
 
 	useEffect(() => {
-		getAllCitiesData(favourites).then((cities) => setCities(cities));
+		getAllCitiesData(favourites)
+			.then((cities) => {
+				setCities(cities);
+				setIsloading(false);
+			})
+			.catch(() => setError(true));
 	}, [favourites]);
 
 	return (
 		<StyledSection>
-			<StatusManager isLoading={!cities?.length}>
+			<StatusManager isLoading={isLoading} error={error} noResults={!cities?.length}>
 				<WeatherCardList cards={cities} />
 			</StatusManager>
 		</StyledSection>

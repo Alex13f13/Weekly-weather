@@ -1,0 +1,15 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Error Component > matches snapshot 1`] = `
+<div>
+  <div
+    class="sc-bcPKhP iomkLE"
+  >
+    <p
+      class="sc-grXZZQ hJAON"
+    >
+      Hubo un error al cargar los datos
+    </p>
+  </div>
+</div>
+`;

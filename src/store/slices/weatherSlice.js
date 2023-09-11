@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { PRIVINCE } from "../../utils/constants";
+import { PROVINCE } from "../../utils/constants";
 
 const initialState = {
-	selectedProvince: PRIVINCE[15],
+	selectedProvince: PROVINCE[15],
 	favourites: [],
 };
 

@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import { LABEL } from "../../utils/constants";
 
-const ErrorNoDataContainer = styled.div`
+const ErrorContainer = styled.div`
 	width: 90%;
 	height: auto;
 	background-color: #f8d7da;
@@ -16,10 +17,10 @@ const ErrorMessage = styled.p`
 	text-align: center;
 `;
 
-export default function ErrorNoData() {
+export default function Error() {
 	return (
-		<ErrorNoDataContainer>
-			<ErrorMessage>Hubo un error al cargar los datos.</ErrorMessage>
-		</ErrorNoDataContainer>
+		<ErrorContainer>
+			<ErrorMessage>{LABEL.error}</ErrorMessage>
+		</ErrorContainer>
 	);
 }

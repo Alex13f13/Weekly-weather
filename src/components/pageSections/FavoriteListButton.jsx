@@ -4,7 +4,7 @@ import Button from "@mui/material/Button";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import { paths } from "../../router/paths";
 import useFavourites from "../../utils/hooks/useFavourites";
-import { VARIANT } from "../../utils/constants";
+import { LABEL, VARIANT } from "../../utils/constants";
 
 const StyledSection = styled.section`
 	display: flex;
@@ -26,7 +26,7 @@ export default function FavoriteListButton() {
 					navigate(paths.favourites);
 				}}
 			>
-				Lista de favoritos
+				{LABEL.favListButton}
 			</Button>
 		</StyledSection>
 	);

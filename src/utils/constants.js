@@ -28,6 +28,13 @@ export const LABEL = {
 	humidity: "Humedad:",
 	uv: "Índice max. uv:",
 	wind: "Viento:",
+	loading: "Cargando...",
+	error: "Hubo un error al cargar los datos",
+	noResults: "No hay resultados",
+	seletProvince: "Selecciona una provincia 🌍",
+	favListButton: "Lista de favoritos",
+	nextDays: "Próximos días",
+  seeMore: "Ver más",
 };
 
 export const UNITS = {
@@ -47,7 +54,7 @@ export const VARIANT = {
   outlined: "outlined",
 };
 
-export const PRIVINCE = {
+export const PROVINCE = {
   15: "A Coruña",
   3: "Albacete",
   4: "Alicante",

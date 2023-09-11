@@ -1,3 +1,5 @@
+import { LABEL } from "../../utils/constants";
+
 export default function NoResults() {
-	return <p>No hay resultados</p>;
+	return <p>{LABEL.noResults}</p>;
 }

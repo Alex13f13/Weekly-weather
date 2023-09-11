@@ -1,3 +1,5 @@
+import { LABEL } from "../../utils/constants";
+
 export default function Loading() {
-	return <>Cargando...</>;
+	return <>{LABEL.loading}</>;
 }
