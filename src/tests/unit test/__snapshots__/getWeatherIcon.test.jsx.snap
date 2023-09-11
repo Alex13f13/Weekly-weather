@@ -1,0 +1,73 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`getWeatherIcon Function > returns a cloud icon for 'cubierto' weather 1`] = `
+<Memo
+  fontSize="small"
+/>
+`;
+
+exports[`getWeatherIcon Function > returns a cloud icon for 'nublado' weather 1`] = `
+<Memo
+  fontSize="small"
+/>
+`;
+
+exports[`getWeatherIcon Function > returns a default sunny icon for 'soleado' weather (not in mappings) 1`] = `
+<Memo
+  fontSize="small"
+/>
+`;
+
+exports[`getWeatherIcon Function > returns a default sunny icon for a null weather description 1`] = `
+<Memo
+  fontSize="small"
+/>
+`;
+
+exports[`getWeatherIcon Function > returns a default sunny icon for an empty weather description 1`] = `
+<Memo
+  fontSize="small"
+/>
+`;
+
+exports[`getWeatherIcon Function > returns a default sunny icon for an undefined weather description 1`] = `
+<Memo
+  fontSize="small"
+/>
+`;
+
+exports[`getWeatherIcon Function > returns a default sunny icon for unknown weather descriptions 1`] = `
+<Memo
+  fontSize="small"
+/>
+`;
+
+exports[`getWeatherIcon Function > returns a sunny icon for 'despejado' weather 1`] = `
+<Memo
+  fontSize="small"
+/>
+`;
+
+exports[`getWeatherIcon Function > returns a sunny icon for 'sol' weather 1`] = `
+<Memo
+  fontSize="small"
+/>
+`;
+
+exports[`getWeatherIcon Function > returns a thunderstorm icon for 'tormenta' weather 1`] = `
+<Memo
+  fontSize="small"
+/>
+`;
+
+exports[`getWeatherIcon Function > returns a water drop icon for 'lluvia' weather 1`] = `
+<Memo
+  fontSize="small"
+/>
+`;
+
+exports[`getWeatherIcon Function > returns a water drop icon for 'lluvioso' weather with custom fontSize 1`] = `
+<Memo
+  fontSize="large"
+/>
+`;

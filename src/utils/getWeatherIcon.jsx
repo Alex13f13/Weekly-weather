@@ -23,6 +23,6 @@ export const getWeatherIcon = (weatherDescription, fontSize = SIZE.small) => {
 	return matchingIcon ? iconMappings[matchingIcon] : <WbSunnyIcon fontSize={fontSize} />;
 };
 
-// Esta función asigna iconos basados en palabras clave en la descripción del tiempo
-// debido a la falta de documentación de equivalencia de la API con códigos específicos.
-// Para una solución más robusta, se debería considerar usar el código proporcionado por la API en lugar de texto.
+// This function assigns icons based on keywords in the time description.
+// Due to lack of API equivalence documentation with specific code.
+// For a more robust solution, you should consider using the code provided by the API instead of text.
