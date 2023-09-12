@@ -1,0 +1,72 @@
+{
+	"originURL": "https://www.aemet.es",
+	"name": "Madrid",
+	"today": {
+		"temperature": {
+			"now": "21",
+			"max": "28",
+			"min": "19"
+		},
+		"wind": "8",
+		"uv": "5",
+		"humidity": "79",
+		"day": "2023-09-10",
+		"weather": "Muy nuboso"
+	},
+	"nextDays": [
+		{
+			"name": "2023-09-11",
+			"temperatures": {
+				"max": "25",
+				"min": "17"
+			},
+			"description": "Nuboso con lluvia escasa",
+			"icon": "Nuboso con lluvia escasa"
+		},
+		{
+			"name": "2023-09-12",
+			"temperatures": {
+				"max": "26",
+				"min": "16"
+			},
+			"description": "Intervalos nubosos",
+			"icon": "Intervalos nubosos"
+		},
+		{
+			"name": "2023-09-13",
+			"temperatures": {
+				"max": "27",
+				"min": "16"
+			},
+			"description": "Poco nuboso",
+			"icon": "Poco nuboso"
+		},
+		{
+			"name": "2023-09-14",
+			"temperatures": {
+				"max": "27",
+				"min": "17"
+			},
+			"description": "Intervalos nubosos",
+			"icon": "Intervalos nubosos"
+		},
+		{
+			"name": "2023-09-15",
+			"temperatures": {
+				"max": "25",
+				"min": "17"
+			},
+			"description": "Muy nuboso con lluvia",
+			"icon": "Muy nuboso con lluvia"
+		},
+		{
+			"name": "2023-09-16",
+			"temperatures": {
+				"max": "24",
+				"min": "16"
+			},
+			"description": "Nuboso con lluvia",
+			"icon": "Nuboso con lluvia"
+		}
+	]
+}

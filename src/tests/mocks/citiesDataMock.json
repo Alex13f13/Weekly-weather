@@ -1,0 +1,22 @@
+[
+	{
+		"id": "28079",
+		"name": "Madrid",
+		"description": "Muy nuboso con tormenta y lluvia escasa",
+		"icon": "Muy nuboso con tormenta y lluvia escasa",
+		"temperatures": {
+			"max": "28",
+			"min": "19"
+		}
+	},
+	{
+		"id": "28005",
+		"name": "Alcalá de Henares",
+		"description": "Intervalos nubosos con lluvia",
+		"icon": "Intervalos nubosos con lluvia",
+		"temperatures": {
+			"max": "30",
+			"min": "16"
+		}
+	}
+]

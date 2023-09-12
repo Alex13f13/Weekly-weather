@@ -10,6 +10,7 @@ const StyledSection = styled.section`
 
 export default function CityWeatherList() {
 	const { selectedProvince } = useSelector((state) => state.weather);
+	console.log("selectedProvince", selectedProvince);
 	const { data: cities, isLoading, error } = useGetCitiesByProvinceIdQuery(selectedProvince);
 
 	return (
