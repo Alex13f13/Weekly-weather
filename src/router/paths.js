@@ -1,6 +1,6 @@
 export const paths = {
-	home: "/",
-	detailBase: "/detail/",
-	detail: "/detail/:id",
-	favourites: "/favourites",
+	home: "/Weekly-weather/",
+	detailBase: "/Weekly-weather/detail/",
+	detail: "/Weekly-weather/detail/:id",
+	favourites: "/Weekly-weather/favourites",
 };
