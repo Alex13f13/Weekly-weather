@@ -3,18 +3,18 @@ import { MemoryRouter, Route, Routes } from "react-router-dom";
 import { BackButton } from "../../components/common";
 import { paths } from "../../router/paths";
 import { LABEL } from "../../utils/constants";
+import { createMemoryHistory } from "history";
 
 describe("BackButton Component", () => {
+	const history = createMemoryHistory({
+		initialEntries: [paths.favourites],
+	});
 	beforeEach(() => {
 		render(
 			<MemoryRouter initialEntries={[paths.favourites]}>
 				<Routes>
 					<Route path={paths.home} element={<BackButton />} />
-					<Route
-						path={paths.favourites}
-						element={<BackButton />}
-						elementProps={{ history: { location: { pathname: paths.home } } }}
-					/>
+					<Route path={paths.favourites} element={<BackButton />} elementProps={{ history }} />
 				</Routes>
 			</MemoryRouter>
 		);
@@ -28,6 +28,6 @@ describe("BackButton Component", () => {
 	it("navigates back when clicked", () => {
 		const backButton = screen.getByLabelText(LABEL.back);
 		fireEvent.click(backButton);
-		expect(window.location.pathname).toBe(paths.home);
+		expect(history.location.pathname).toBe(paths.favourites);
 	});
 });
