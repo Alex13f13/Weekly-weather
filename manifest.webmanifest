@@ -1,1 +1,1 @@
-{"name":"weekly-weather","short_name":"weekly-weather","start_url":"/Weekly-weather/","display":"standalone","background_color":"#ffffff","lang":"en","scope":"/Weekly-weather/"}
+{"name":"Weekly Weather","short_name":"Weekly Weather","start_url":"https://alex13f13.github.io/Weekly-weather/","display":"standalone","background_color":"#fff","lang":"en","scope":"/Weekly-weather/","description":"Weekly Weather App","icons":[],"theme_color":"#fff"}
